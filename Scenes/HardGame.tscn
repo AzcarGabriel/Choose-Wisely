@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sounds/confirmation_002.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/error_002.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/game_music_1.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Scripts/HardGame.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fonts/Kenney Pixel Square.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 5 )
+
+[node name="HardGame" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Instruction" type="RichTextLabel" parent="CanvasLayer"]
+anchor_top = 0.00666667
+anchor_right = 1.0
+anchor_bottom = 0.00666667
+margin_top = 20.0
+margin_bottom = 70.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+anchor_top = 0.00666667
+anchor_right = 1.0
+anchor_bottom = 0.00666667
+margin_top = 77.3746
+margin_bottom = 127.375
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Test [rainbow]text[/rainbow][/center]"
+text = "Test text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="RichTextLabel" parent="CanvasLayer"]
+anchor_top = 0.00666667
+anchor_right = 1.0
+anchor_bottom = 0.00666667
+margin_left = 768.855
+margin_top = 77.0
+margin_right = -5.14502
+margin_bottom = 127.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Test [rainbow]text[/rainbow][/center]"
+text = "Test text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinalResults" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+anchor_top = 0.00666667
+anchor_right = 1.0
+anchor_bottom = 0.00666667
+margin_top = 20.0
+margin_bottom = 198.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Test [rainbow]text[/rainbow][/center]"
+text = "Test text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnToMainMenu" type="Button" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.0
+margin_top = -15.0
+margin_right = 58.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 2 )
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="InstructionTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="ReconShiftTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+bus = "Music"
+
+[node name="CorrectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Effects"
+
+[node name="IncorrectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Effects"
+
+[node name="RightSpawn" type="Position2D" parent="."]
+position = Vector2( 768, 300 )
+
+[node name="LeftSpawn" type="Position2D" parent="."]
+position = Vector2( 256, 300 )
